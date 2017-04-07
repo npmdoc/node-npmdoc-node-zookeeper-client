@@ -1,0 +1,4299 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/alexguan/node-zookeeper-client"
+
+    >node-zookeeper-client (v0.2.2)</a>
+</h1>
+<h4>A pure Javascript ZooKeeper client for Node.js.</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-zookeeper-client">module node-zookeeper-client</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.ACL">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.</span>ACL
+            <span class="apidocSignatureSpan">(permission, id)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.ConnectionManager">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.</span>ConnectionManager
+            <span class="apidocSignatureSpan">(connectionString, options, stateListener)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.ConnectionStringParser">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.</span>ConnectionStringParser
+            <span class="apidocSignatureSpan">(connectionString)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.Event">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.</span>Event
+            <span class="apidocSignatureSpan">(type, name, path)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.Exception">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.</span>Exception
+            <span class="apidocSignatureSpan">(code, name, path, ctor)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.Exception.super_">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.</span>Exception.super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.Id">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.</span>Id
+            <span class="apidocSignatureSpan">(scheme, id)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.PacketQueue">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.</span>PacketQueue
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.Transaction">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.</span>Transaction
+            <span class="apidocSignatureSpan">(connectionManager)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.WatcherManager">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.</span>WatcherManager
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.createClient">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.</span>createClient
+            <span class="apidocSignatureSpan">(connectionString, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">node-zookeeper-client.</span>ACL.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">node-zookeeper-client.</span>ConnectionManager.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">node-zookeeper-client.</span>ConnectionStringParser.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">node-zookeeper-client.</span>CreateMode</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">node-zookeeper-client.</span>Event.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">node-zookeeper-client.</span>Exception.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">node-zookeeper-client.</span>Id.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">node-zookeeper-client.</span>PacketQueue.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">node-zookeeper-client.</span>Path</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">node-zookeeper-client.</span>Permission</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">node-zookeeper-client.</span>State</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">node-zookeeper-client.</span>Transaction.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">node-zookeeper-client.</span>WatcherManager.prototype</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-zookeeper-client.ACL">module node-zookeeper-client.ACL</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.ACL.ACL">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.</span>ACL
+            <span class="apidocSignatureSpan">(permission, id)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.ACL.fromRecord">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.ACL.</span>fromRecord
+            <span class="apidocSignatureSpan">(record)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">node-zookeeper-client.ACL.</span>CREATOR_ALL_ACL</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">node-zookeeper-client.ACL.</span>OPEN_ACL_UNSAFE</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">node-zookeeper-client.ACL.</span>READ_ACL_UNSAFE</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-zookeeper-client.ACL.prototype">module node-zookeeper-client.ACL.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.ACL.prototype.toRecord">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.ACL.prototype.</span>toRecord
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-zookeeper-client.ConnectionManager">module node-zookeeper-client.ConnectionManager</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.ConnectionManager.ConnectionManager">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.</span>ConnectionManager
+            <span class="apidocSignatureSpan">(connectionString, options, stateListener)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.ConnectionManager.super_">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.ConnectionManager.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">node-zookeeper-client.ConnectionManager.</span>STATES</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-zookeeper-client.ConnectionManager.prototype">module node-zookeeper-client.ConnectionManager.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.ConnectionManager.prototype.addAuthInfo">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.ConnectionManager.prototype.</span>addAuthInfo
+            <span class="apidocSignatureSpan">(scheme, auth)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.ConnectionManager.prototype.cleanupPendingQueue">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.ConnectionManager.prototype.</span>cleanupPendingQueue
+            <span class="apidocSignatureSpan">(errorCode)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.ConnectionManager.prototype.close">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.ConnectionManager.prototype.</span>close
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.ConnectionManager.prototype.connect">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.ConnectionManager.prototype.</span>connect
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.ConnectionManager.prototype.findNextServer">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.ConnectionManager.prototype.</span>findNextServer
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.ConnectionManager.prototype.getSessionId">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.ConnectionManager.prototype.</span>getSessionId
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.ConnectionManager.prototype.getSessionPassword">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.ConnectionManager.prototype.</span>getSessionPassword
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.ConnectionManager.prototype.getSessionTimeout">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.ConnectionManager.prototype.</span>getSessionTimeout
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.ConnectionManager.prototype.onPacketQueueReadable">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.ConnectionManager.prototype.</span>onPacketQueueReadable
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.ConnectionManager.prototype.onSocketClosed">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.ConnectionManager.prototype.</span>onSocketClosed
+            <span class="apidocSignatureSpan">(hasError)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.ConnectionManager.prototype.onSocketConnectTimeout">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.ConnectionManager.prototype.</span>onSocketConnectTimeout
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.ConnectionManager.prototype.onSocketConnected">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.ConnectionManager.prototype.</span>onSocketConnected
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.ConnectionManager.prototype.onSocketData">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.ConnectionManager.prototype.</span>onSocketData
+            <span class="apidocSignatureSpan">(buffer)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.ConnectionManager.prototype.onSocketDrain">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.ConnectionManager.prototype.</span>onSocketDrain
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.ConnectionManager.prototype.onSocketError">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.ConnectionManager.prototype.</span>onSocketError
+            <span class="apidocSignatureSpan">(error)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.ConnectionManager.prototype.onSocketTimeout">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.ConnectionManager.prototype.</span>onSocketTimeout
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.ConnectionManager.prototype.queue">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.ConnectionManager.prototype.</span>queue
+            <span class="apidocSignatureSpan">(request, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.ConnectionManager.prototype.registerChildWatcher">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.ConnectionManager.prototype.</span>registerChildWatcher
+            <span class="apidocSignatureSpan">(path, watcher)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.ConnectionManager.prototype.registerDataWatcher">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.ConnectionManager.prototype.</span>registerDataWatcher
+            <span class="apidocSignatureSpan">(path, watcher)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.ConnectionManager.prototype.registerExistenceWatcher">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.ConnectionManager.prototype.</span>registerExistenceWatcher
+            <span class="apidocSignatureSpan">(path, watcher)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.ConnectionManager.prototype.setState">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.ConnectionManager.prototype.</span>setState
+            <span class="apidocSignatureSpan">(state)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.ConnectionManager.prototype.updateTimeout">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.ConnectionManager.prototype.</span>updateTimeout
+            <span class="apidocSignatureSpan">(sessionTimeout)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-zookeeper-client.ConnectionStringParser">module node-zookeeper-client.ConnectionStringParser</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.ConnectionStringParser.ConnectionStringParser">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.</span>ConnectionStringParser
+            <span class="apidocSignatureSpan">(connectionString)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-zookeeper-client.ConnectionStringParser.prototype">module node-zookeeper-client.ConnectionStringParser.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.ConnectionStringParser.prototype.getChrootPath">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.ConnectionStringParser.prototype.</span>getChrootPath
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.ConnectionStringParser.prototype.getConnectionString">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.ConnectionStringParser.prototype.</span>getConnectionString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.ConnectionStringParser.prototype.getServers">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.ConnectionStringParser.prototype.</span>getServers
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-zookeeper-client.Event">module node-zookeeper-client.Event</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.Event.Event">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.</span>Event
+            <span class="apidocSignatureSpan">(type, name, path)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.Event.create">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.Event.</span>create
+            <span class="apidocSignatureSpan">(watcherEvent)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">node-zookeeper-client.Event.</span>NODE_CHILDREN_CHANGED</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">node-zookeeper-client.Event.</span>NODE_CREATED</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">node-zookeeper-client.Event.</span>NODE_DATA_CHANGED</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">node-zookeeper-client.Event.</span>NODE_DELETED</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-zookeeper-client.Event.prototype">module node-zookeeper-client.Event.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.Event.prototype.getName">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.Event.prototype.</span>getName
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.Event.prototype.getPath">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.Event.prototype.</span>getPath
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.Event.prototype.getType">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.Event.prototype.</span>getType
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.Event.prototype.toString">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.Event.prototype.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-zookeeper-client.Exception">module node-zookeeper-client.Exception</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.Exception.Exception">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.</span>Exception
+            <span class="apidocSignatureSpan">(code, name, path, ctor)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.Exception.create">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.Exception.</span>create
+            <span class="apidocSignatureSpan">(code, path)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.Exception.super_">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.Exception.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">node-zookeeper-client.Exception.</span>API_ERROR</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">node-zookeeper-client.Exception.</span>AUTH_FAILED</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">node-zookeeper-client.Exception.</span>BAD_ARGUMENTS</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">node-zookeeper-client.Exception.</span>BAD_VERSION</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">node-zookeeper-client.Exception.</span>CONNECTION_LOSS</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">node-zookeeper-client.Exception.</span>DATA_INCONSISTENCY</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">node-zookeeper-client.Exception.</span>INVALID_ACL</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">node-zookeeper-client.Exception.</span>INVALID_CALLBACK</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">node-zookeeper-client.Exception.</span>MARSHALLING_ERROR</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">node-zookeeper-client.Exception.</span>NODE_EXISTS</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">node-zookeeper-client.Exception.</span>NOT_EMPTY</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">node-zookeeper-client.Exception.</span>NO_AUTH</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">node-zookeeper-client.Exception.</span>NO_CHILDREN_FOR_EPHEMERALS</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">node-zookeeper-client.Exception.</span>NO_NODE</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">node-zookeeper-client.Exception.</span>OK</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">node-zookeeper-client.Exception.</span>OPERATION_TIMEOUT</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">node-zookeeper-client.Exception.</span>RUNTIME_INCONSISTENCY</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">node-zookeeper-client.Exception.</span>SESSION_EXPIRED</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">node-zookeeper-client.Exception.</span>SYSTEM_ERROR</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">node-zookeeper-client.Exception.</span>UNIMPLEMENTED</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-zookeeper-client.Exception.prototype">module node-zookeeper-client.Exception.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.Exception.prototype.getCode">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.Exception.prototype.</span>getCode
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.Exception.prototype.getName">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.Exception.prototype.</span>getName
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.Exception.prototype.getPath">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.Exception.prototype.</span>getPath
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.Exception.prototype.toString">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.Exception.prototype.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-zookeeper-client.Exception.super_">module node-zookeeper-client.Exception.super_</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.Exception.super_.super_">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.Exception.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.Exception.super_.captureStackTrace">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.Exception.super_.</span>captureStackTrace
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">node-zookeeper-client.Exception.super_.</span>stackTraceLimit</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-zookeeper-client.Id">module node-zookeeper-client.Id</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.Id.Id">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.</span>Id
+            <span class="apidocSignatureSpan">(scheme, id)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.Id.fromRecord">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.Id.</span>fromRecord
+            <span class="apidocSignatureSpan">(record)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">node-zookeeper-client.Id.</span>ANYONE_ID_UNSAFE</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">node-zookeeper-client.Id.</span>AUTH_IDS</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-zookeeper-client.Id.prototype">module node-zookeeper-client.Id.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.Id.prototype.toRecord">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.Id.prototype.</span>toRecord
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-zookeeper-client.PacketQueue">module node-zookeeper-client.PacketQueue</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.PacketQueue.PacketQueue">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.</span>PacketQueue
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.PacketQueue.super_">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.PacketQueue.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-zookeeper-client.PacketQueue.prototype">module node-zookeeper-client.PacketQueue.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.PacketQueue.prototype.push">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.PacketQueue.prototype.</span>push
+            <span class="apidocSignatureSpan">(packet)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.PacketQueue.prototype.shift">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.PacketQueue.prototype.</span>shift
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.PacketQueue.prototype.unshift">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.PacketQueue.prototype.</span>unshift
+            <span class="apidocSignatureSpan">(packet)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-zookeeper-client.Path">module node-zookeeper-client.Path</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.Path.validate">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.Path.</span>validate
+            <span class="apidocSignatureSpan">(path)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-zookeeper-client.Transaction">module node-zookeeper-client.Transaction</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.Transaction.Transaction">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.</span>Transaction
+            <span class="apidocSignatureSpan">(connectionManager)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-zookeeper-client.Transaction.prototype">module node-zookeeper-client.Transaction.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.Transaction.prototype.check">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.Transaction.prototype.</span>check
+            <span class="apidocSignatureSpan">(path, version)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.Transaction.prototype.commit">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.Transaction.prototype.</span>commit
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.Transaction.prototype.create">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.Transaction.prototype.</span>create
+            <span class="apidocSignatureSpan">(path, data, acls, mode)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.Transaction.prototype.remove">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.Transaction.prototype.</span>remove
+            <span class="apidocSignatureSpan">(path, version)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.Transaction.prototype.setData">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.Transaction.prototype.</span>setData
+            <span class="apidocSignatureSpan">(path, data, version)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-zookeeper-client.WatcherManager">module node-zookeeper-client.WatcherManager</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.WatcherManager.WatcherManager">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.</span>WatcherManager
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-zookeeper-client.WatcherManager.prototype">module node-zookeeper-client.WatcherManager.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.WatcherManager.prototype.emit">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.WatcherManager.prototype.</span>emit
+            <span class="apidocSignatureSpan">(watcherEvent)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.WatcherManager.prototype.getChildWatcherPaths">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.WatcherManager.prototype.</span>getChildWatcherPaths
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.WatcherManager.prototype.getDataWatcherPaths">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.WatcherManager.prototype.</span>getDataWatcherPaths
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.WatcherManager.prototype.getExistenceWatcherPaths">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.WatcherManager.prototype.</span>getExistenceWatcherPaths
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.WatcherManager.prototype.isEmpty">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.WatcherManager.prototype.</span>isEmpty
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.WatcherManager.prototype.registerChildWatcher">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.WatcherManager.prototype.</span>registerChildWatcher
+            <span class="apidocSignatureSpan">(path, watcher)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.WatcherManager.prototype.registerDataWatcher">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.WatcherManager.prototype.</span>registerDataWatcher
+            <span class="apidocSignatureSpan">(path, watcher)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-zookeeper-client.WatcherManager.prototype.registerExistenceWatcher">
+            function <span class="apidocSignatureSpan">node-zookeeper-client.WatcherManager.prototype.</span>registerExistenceWatcher
+            <span class="apidocSignatureSpan">(path, watcher)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-zookeeper-client" id="apidoc.module.node-zookeeper-client">module node-zookeeper-client</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.ACL" id="apidoc.element.node-zookeeper-client.ACL">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.</span>ACL
+        <span class="apidocSignatureSpan">(permission, id)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function ACL(permission, id) {
+    if (typeof permission !== &#x27;number&#x27; || permission &#x3c; 1 || permission &#x3e; 31) {
+        throw new Error(&#x27;permission must be a valid integer.&#x27;);
+    }
+
+    if (!(id instanceof Id)) {
+        throw new Error(&#x27;id must be an instance of Id class.&#x27;);
+    }
+
+    this.permission = permission;
+    this.id = id;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+**Example**
+
+```javascript
+zookeeper.setACL(
+&#x27;/test/demo&#x27;,
+[
+    new zookeeper.<span class="apidocCodeKeywordSpan">ACL</span>(
+        zookeeeper.Permission.ADMIN,
+        new zookeeper.Id(&#x27;ip&#x27;, &#x27;127.0.0.1&#x27;)
+    )
+],
+function (error, acls, stat) {
+    if (error) {
+        console.log(error.stack);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.ConnectionManager" id="apidoc.element.node-zookeeper-client.ConnectionManager">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.</span>ConnectionManager
+        <span class="apidocSignatureSpan">(connectionString, options, stateListener)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function ConnectionManager(connectionString, options, stateListener) {
+    events.EventEmitter.call(this);
+
+    this.watcherManager = new WatcherManager();
+    this.connectionStringParser = new ConnectionStringParser(connectionString);
+
+    this.servers = this.connectionStringParser.getServers();
+    this.chrootPath = this.connectionStringParser.getChrootPath();
+    this.nextServerIndex = 0;
+    this.serverAttempts = 0;
+
+    this.state = STATES.DISCONNECTED;
+
+    this.options = options;
+    this.spinDelay = options.spinDelay;
+
+    this.updateTimeout(options.sessionTimeout);
+    this.connectTimeoutHandler = null;
+
+    this.xid = 0;
+
+    this.sessionId = new Buffer(8);
+    if (Buffer.isBuffer(options.sessionId)) {
+        options.sessionId.copy(this.sessionId);
+    } else {
+        this.sessionId.fill(0);
+    }
+
+    this.sessionPassword = new Buffer(16);
+    if (Buffer.isBuffer(options.sessionPassword)) {
+        options.sessionPassword.copy(this.sessionPassword);
+    } else {
+        this.sessionPassword.fill(0);
+    }
+
+    // scheme:auth pairs
+    this.credentials = [];
+
+    // Last seen zxid.
+    this.zxid = new Buffer(8);
+    this.zxid.fill(0);
+
+
+    this.pendingBuffer = null;
+
+    this.packetQueue = new PacketQueue();
+    this.packetQueue.on(&#x27;readable&#x27;, this.onPacketQueueReadable.bind(this));
+    this.pendingQueue = [];
+
+    this.on(&#x27;state&#x27;, stateListener);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.ConnectionStringParser" id="apidoc.element.node-zookeeper-client.ConnectionStringParser">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.</span>ConnectionStringParser
+        <span class="apidocSignatureSpan">(connectionString)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function ConnectionStringParser(connectionString) {
+    assert(
+        connectionString &#x26;&#x26; typeof connectionString === &#x27;string&#x27;,
+        &#x27;connectionString must be a non-empty string.&#x27;
+    );
+
+    this.connectionString = connectionString;
+
+    // Handle chroot
+    var index = connectionString.indexOf(&#x27;/&#x27;),
+        hostList = [],
+        servers = [];
+
+    if (index !== -1 &#x26;&#x26; index !== (connectionString.length - 1)) {
+        this.chrootPath = connectionString.substring(index);
+        Path.validate(this.chrootPath);
+    } else {
+        this.chrootPath = undefined;
+    }
+
+    if (index !== -1) {
+        hostList = connectionString.substring(0, index).split(&#x27;,&#x27;);
+    } else {
+        hostList = connectionString.split(&#x27;,&#x27;);
+    }
+
+    hostList.filter(function (item) {
+        // Filter out empty string.
+        return item;
+    }).forEach(function (item) {
+        var parts = item.split(&#x27;:&#x27;);
+        servers.push({
+            host : parts[0],
+            port : parts[1] || DEFAULT_PORT
+        });
+    });
+
+    assert(
+        servers.length &#x3e; 0,
+        &#x27;connectionString must contain at least one server.&#x27;
+    );
+
+    // Randomize the list.
+    this.servers = u.shuffle(servers);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.Event" id="apidoc.element.node-zookeeper-client.Event">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.</span>Event
+        <span class="apidocSignatureSpan">(type, name, path)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Event(type, name, path) {
+    validateType(type);
+    assert(
+        name &#x26;&#x26; typeof name === &#x27;string&#x27;,
+        &#x27;name must be a non-empty string.&#x27;
+    );
+
+    this.type = type;
+    this.name = name;
+    this.path = path;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.Exception" id="apidoc.element.node-zookeeper-client.Exception">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.</span>Exception
+        <span class="apidocSignatureSpan">(code, name, path, ctor)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Exception(code, name, path, ctor) {
+    if (!ctor) {
+        ctor = path;
+        path = undefined;
+    }
+
+    validateCode(code);
+    assert(
+        name &#x26;&#x26; typeof name === &#x27;string&#x27;,
+        &#x27;name must be a non-empty string.&#x27;
+    );
+    assert(typeof ctor === &#x27;function&#x27;, &#x27;ctor must be a function.&#x27;);
+
+    Error.captureStackTrace(this, ctor || Exception);
+    this.code = code;
+    this.name = name;
+    this.path = path;
+
+    this.message = &#x27;Exception: &#x27; + name + &#x27;[&#x27; + code + &#x27;]&#x27;;
+
+    if (path) {
+        this.message += &#x27;@&#x27; + path;
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.Exception.super_" id="apidoc.element.node-zookeeper-client.Exception.super_">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.</span>Exception.super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Error() { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.Id" id="apidoc.element.node-zookeeper-client.Id">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.</span>Id
+        <span class="apidocSignatureSpan">(scheme, id)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Id(scheme, id) {
+    if (!scheme || typeof scheme !== &#x27;string&#x27;) {
+        throw new Error(&#x27;scheme must be a non-empty string.&#x27;);
+    }
+
+    if (typeof id !== &#x27;string&#x27;) {
+        throw new Error(&#x27;id must be a string.&#x27;);
+    }
+
+    this.scheme = scheme;
+    this.id = id;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+```javascript
+zookeeper.setACL(
+&#x27;/test/demo&#x27;,
+[
+    new zookeeper.ACL(
+        zookeeeper.Permission.ADMIN,
+        new zookeeper.<span class="apidocCodeKeywordSpan">Id</span>(&#x27;ip&#x27;, &#x27;127.0.0.1&#x27;)
+    )
+],
+function (error, acls, stat) {
+    if (error) {
+        console.log(error.stack);
+        return;
+    }
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.PacketQueue" id="apidoc.element.node-zookeeper-client.PacketQueue">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.</span>PacketQueue
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function PacketQueue() {
+    events.EventEmitter.call(this);
+
+    this.queue = [];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.Transaction" id="apidoc.element.node-zookeeper-client.Transaction">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.</span>Transaction
+        <span class="apidocSignatureSpan">(connectionManager)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Transaction(connectionManager) {
+    if (!(this instanceof Transaction)) {
+        return new Transaction(connectionManager);
+    }
+
+    assert(
+        connectionManager instanceof ConnectionManager,
+        &#x27;connectionManager must be an instance of ConnectionManager.&#x27;
+    );
+
+    this.ops = [];
+    this.connectionManager = connectionManager;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.WatcherManager" id="apidoc.element.node-zookeeper-client.WatcherManager">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.</span>WatcherManager
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function WatcherManager() {
+    this.dataWatchers = {};
+    this.childWatchers = {};
+    this.existenceWatchers = {};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.createClient" id="apidoc.element.node-zookeeper-client.createClient">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.</span>createClient
+        <span class="apidocSignatureSpan">(connectionString, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function createClient(connectionString, options) {
+    return new Client(connectionString, options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+## Example
+
+1\. Create a node using given path:
+
+```javascript
+var zookeeper = require(&#x27;node-zookeeper-client&#x27;);
+
+var client = zookeeper.<span class="apidocCodeKeywordSpan">createClient</span>(&#x27;localhost:2181&#x27;);
+var path = process.argv[2];
+
+client.once(&#x27;connected&#x27;, function () {
+console.log(&#x27;Connected to the server.&#x27;);
+
+client.create(path, function (error) {
+    if (error) {
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-zookeeper-client.ACL" id="apidoc.module.node-zookeeper-client.ACL">module node-zookeeper-client.ACL</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.ACL.ACL" id="apidoc.element.node-zookeeper-client.ACL.ACL">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.</span>ACL
+        <span class="apidocSignatureSpan">(permission, id)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function ACL(permission, id) {
+    if (typeof permission !== &#x27;number&#x27; || permission &#x3c; 1 || permission &#x3e; 31) {
+        throw new Error(&#x27;permission must be a valid integer.&#x27;);
+    }
+
+    if (!(id instanceof Id)) {
+        throw new Error(&#x27;id must be an instance of Id class.&#x27;);
+    }
+
+    this.permission = permission;
+    this.id = id;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+**Example**
+
+```javascript
+zookeeper.setACL(
+&#x27;/test/demo&#x27;,
+[
+    new zookeeper.<span class="apidocCodeKeywordSpan">ACL</span>(
+        zookeeeper.Permission.ADMIN,
+        new zookeeper.Id(&#x27;ip&#x27;, &#x27;127.0.0.1&#x27;)
+    )
+],
+function (error, acls, stat) {
+    if (error) {
+        console.log(error.stack);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.ACL.fromRecord" id="apidoc.element.node-zookeeper-client.ACL.fromRecord">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.ACL.</span>fromRecord
+        <span class="apidocSignatureSpan">(record)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function fromRecord(record) {
+    if (!(record instanceof jute.data.ACL)) {
+        throw new Error(&#x27;record must be an instace of jute.data.ACL.&#x27;);
+    }
+
+    return new ACL(record.perms, Id.fromRecord(record.id));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+            return;
+        }
+
+        var acls;
+
+        if (Array.isArray(response.payload.acl)) {
+            acls = response.payload.acl.map(function (item) {
+                return ACL.<span class="apidocCodeKeywordSpan">fromRecord</span>(item);
+            });
+        }
+
+        next(null, acls, response.payload.stat);
+    });
+},
+callback
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-zookeeper-client.ACL.prototype" id="apidoc.module.node-zookeeper-client.ACL.prototype">module node-zookeeper-client.ACL.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.ACL.prototype.toRecord" id="apidoc.element.node-zookeeper-client.ACL.prototype.toRecord">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.ACL.prototype.</span>toRecord
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toRecord = function () {
+    return new jute.data.ACL(
+        this.permission,
+        this.id.toRecord()
+    );
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+header = new jute.protocol.RequestHeader();
+header.type = jute.OP_CODES.CREATE;
+
+payload = new jute.protocol.CreateRequest();
+payload.path = path;
+payload.acl = acls.map(function (item) {
+    return item.<span class="apidocCodeKeywordSpan">toRecord</span>();
+});
+payload.flags = mode;
+
+if (Buffer.isBuffer(data)) {
+    payload.data = new Buffer(data.length);
+    data.copy(payload.data);
+}
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-zookeeper-client.ConnectionManager" id="apidoc.module.node-zookeeper-client.ConnectionManager">module node-zookeeper-client.ConnectionManager</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.ConnectionManager.ConnectionManager" id="apidoc.element.node-zookeeper-client.ConnectionManager.ConnectionManager">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.</span>ConnectionManager
+        <span class="apidocSignatureSpan">(connectionString, options, stateListener)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function ConnectionManager(connectionString, options, stateListener) {
+    events.EventEmitter.call(this);
+
+    this.watcherManager = new WatcherManager();
+    this.connectionStringParser = new ConnectionStringParser(connectionString);
+
+    this.servers = this.connectionStringParser.getServers();
+    this.chrootPath = this.connectionStringParser.getChrootPath();
+    this.nextServerIndex = 0;
+    this.serverAttempts = 0;
+
+    this.state = STATES.DISCONNECTED;
+
+    this.options = options;
+    this.spinDelay = options.spinDelay;
+
+    this.updateTimeout(options.sessionTimeout);
+    this.connectTimeoutHandler = null;
+
+    this.xid = 0;
+
+    this.sessionId = new Buffer(8);
+    if (Buffer.isBuffer(options.sessionId)) {
+        options.sessionId.copy(this.sessionId);
+    } else {
+        this.sessionId.fill(0);
+    }
+
+    this.sessionPassword = new Buffer(16);
+    if (Buffer.isBuffer(options.sessionPassword)) {
+        options.sessionPassword.copy(this.sessionPassword);
+    } else {
+        this.sessionPassword.fill(0);
+    }
+
+    // scheme:auth pairs
+    this.credentials = [];
+
+    // Last seen zxid.
+    this.zxid = new Buffer(8);
+    this.zxid.fill(0);
+
+
+    this.pendingBuffer = null;
+
+    this.packetQueue = new PacketQueue();
+    this.packetQueue.on(&#x27;readable&#x27;, this.onPacketQueueReadable.bind(this));
+    this.pendingQueue = [];
+
+    this.on(&#x27;state&#x27;, stateListener);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.ConnectionManager.super_" id="apidoc.element.node-zookeeper-client.ConnectionManager.super_">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.ConnectionManager.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function EventEmitter() {
+  EventEmitter.init.call(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-zookeeper-client.ConnectionManager.prototype" id="apidoc.module.node-zookeeper-client.ConnectionManager.prototype">module node-zookeeper-client.ConnectionManager.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.ConnectionManager.prototype.addAuthInfo" id="apidoc.element.node-zookeeper-client.ConnectionManager.prototype.addAuthInfo">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.ConnectionManager.prototype.</span>addAuthInfo
+        <span class="apidocSignatureSpan">(scheme, auth)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">addAuthInfo = function (scheme, auth) {
+    if (!scheme || typeof scheme !== &#x27;string&#x27;) {
+        throw new Error(&#x27;scheme must be a non-empty string.&#x27;);
+    }
+
+    if (!Buffer.isBuffer(auth)) {
+        throw new Error(&#x27;auth must be a valid instance of Buffer&#x27;);
+    }
+
+    var header,
+        payload,
+        request;
+
+    this.credentials.push({
+        scheme : scheme,
+        auth : auth
+    });
+
+    switch (this.state) {
+    case STATES.CONNECTED:
+    case STATES.CONNECTED_READ_ONLY:
+        // Only queue the auth request when connected.
+        header = new jute.protocol.RequestHeader();
+        payload = new jute.protocol.AuthPacket();
+
+        header.xid = jute.XID_AUTHENTICATION;
+        header.type = jute.OP_CODES.AUTH;
+
+        payload.type = 0;
+        payload.scheme = scheme;
+        payload.auth = auth;
+
+        this.queue(new jute.Request(header, payload));
+        break;
+    case STATES.DISCONNECTED:
+    case STATES.CONNECTING:
+    case STATES.CLOSING:
+    case STATES.CLOSED:
+    case STATES.SESSION_EXPIRED:
+    case STATES.AUTHENTICATION_FAILED:
+        // Skip when we are not in a live state.
+        return;
+    default:
+        throw new Error(&#x27;Unknown state: &#x27; + this.state);
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+* scheme `String` - The authentication scheme.
+* auth `Buffer` - The authentication data buffer.
+
+**Example**
+
+```javascript
+zookeeper.<span class="apidocCodeKeywordSpan">addAuthInfo</span>(&#x27;ip&#x27;, new Buffer(&#x27;127.0.0.1&#x27;));
+```
+
+---
+
+#### State getState()
+
+Return the current client [state](#state).
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.ConnectionManager.prototype.cleanupPendingQueue" id="apidoc.element.node-zookeeper-client.ConnectionManager.prototype.cleanupPendingQueue">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.ConnectionManager.prototype.</span>cleanupPendingQueue
+        <span class="apidocSignatureSpan">(errorCode)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">cleanupPendingQueue = function (errorCode) {
+    var pendingPacket = this.pendingQueue.shift();
+
+    while (pendingPacket) {
+        if (pendingPacket.callback) {
+            pendingPacket.callback(Exception.create(errorCode));
+        }
+
+        pendingPacket = this.pendingQueue.shift();
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    retry = false;
+    break;
+default:
+    errorCode = Exception.CONNECTION_LOSS;
+    retry = true;
+}
+
+this.<span class="apidocCodeKeywordSpan">cleanupPendingQueue</span>(errorCode);
+this.setState(STATES.DISCONNECTED);
+
+if (retry) {
+    this.connect();
+} else {
+    this.setState(STATES.CLOSED);
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.ConnectionManager.prototype.close" id="apidoc.element.node-zookeeper-client.ConnectionManager.prototype.close">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.ConnectionManager.prototype.</span>close
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">close = function () {
+    var self = this,
+        header = new jute.protocol.RequestHeader(),
+        request;
+
+    self.setState(STATES.CLOSING);
+
+    header.type = jute.OP_CODES.CLOSE_SESSION;
+    request = new jute.Request(header, null);
+
+    self.queue(request);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    client.create(path, function (error) {
+        if (error) {
+            console.log(&#x27;Failed to create node: %s due to: %s.&#x27;, path, error);
+        } else {
+            console.log(&#x27;Node: %s is successfully created.&#x27;, path);
+        }
+
+        client.<span class="apidocCodeKeywordSpan">close</span>();
+    });
+});
+
+client.connect();
+```
+
+2\. List and watch the children of given node:
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.ConnectionManager.prototype.connect" id="apidoc.element.node-zookeeper-client.ConnectionManager.prototype.connect">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.ConnectionManager.prototype.</span>connect
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">connect = function () {
+    var self = this;
+
+    self.setState(STATES.CONNECTING);
+
+    self.findNextServer(function (server) {
+        self.socket = net.connect(server);
+
+        self.connectTimeoutHandler = setTimeout(
+            self.onSocketConnectTimeout.bind(self),
+            self.connectTimeout
+        );
+
+        // Disable the Nagle algorithm.
+        self.socket.setNoDelay();
+
+        self.socket.on(&#x27;connect&#x27;, self.onSocketConnected.bind(self));
+        self.socket.on(&#x27;data&#x27;, self.onSocketData.bind(self));
+        self.socket.on(&#x27;drain&#x27;, self.onSocketDrain.bind(self));
+        self.socket.on(&#x27;close&#x27;, self.onSocketClosed.bind(self));
+        self.socket.on(&#x27;error&#x27;, self.onSocketError.bind(self));
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+            console.log(&#x27;Node: %s is successfully created.&#x27;, path);
+        }
+
+        client.close();
+    });
+});
+
+client.<span class="apidocCodeKeywordSpan">connect</span>();
+```
+
+2\. List and watch the children of given node:
+
+```javascript
+var zookeeper = require(&#x27;node-zookeeper-client&#x27;);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.ConnectionManager.prototype.findNextServer" id="apidoc.element.node-zookeeper-client.ConnectionManager.prototype.findNextServer">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.ConnectionManager.prototype.</span>findNextServer
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">findNextServer = function (callback) {
+    var self = this;
+
+    self.nextServerIndex %= self.servers.length;
+
+    if (self.serverAttempts === self.servers.length) {
+        setTimeout(function () {
+            callback(self.servers[self.nextServerIndex]);
+            self.nextServerIndex += 1;
+
+            // reset attempts since we already waited for enough time.
+            self.serverAttempts = 0;
+        }, Math.random() * self.spinDelay);
+    } else {
+        self.serverAttempts += 1;
+
+        process.nextTick(function () {
+            callback(self.servers[self.nextServerIndex]);
+            self.nextServerIndex += 1;
+        });
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+ConnectionManager.prototype.connect = function () {
+    var self = this;
+
+    self.setState(STATES.CONNECTING);
+
+    self.<span class="apidocCodeKeywordSpan">findNextServer</span>(function (server) {
+self.socket = net.connect(server);
+
+self.connectTimeoutHandler = setTimeout(
+    self.onSocketConnectTimeout.bind(self),
+    self.connectTimeout
+);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.ConnectionManager.prototype.getSessionId" id="apidoc.element.node-zookeeper-client.ConnectionManager.prototype.getSessionId">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.ConnectionManager.prototype.</span>getSessionId
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getSessionId = function () {
+    var result = new Buffer(8);
+
+    this.sessionId.copy(result);
+    return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+[`Buffer`](http://nodejs.org/api/buffer.html) since Javascript does not support
+long integer natively.
+
+**Example**
+
+```javascript
+var client = zookeeper.createClient({...});
+var id = client.<span class="apidocCodeKeywordSpan">getSessionId</span>();
+console.log(&#x27;Session id is: %s&#x27;, id.toString(&#x27;hex&#x27;));
+```
+
+---
+
+#### Buffer getSessionPassword()
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.ConnectionManager.prototype.getSessionPassword" id="apidoc.element.node-zookeeper-client.ConnectionManager.prototype.getSessionPassword">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.ConnectionManager.prototype.</span>getSessionPassword
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getSessionPassword = function () {
+    var result = new Buffer(16);
+
+    this.sessionPassword.copy(result);
+    return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+The value returned is an instance of
+[`Buffer`](http://nodejs.org/api/buffer.html).
+
+**Example**
+
+```javascript
+var client = zookeeper.createClient({...});
+var pwd = client.<span class="apidocCodeKeywordSpan">getSessionPassword</span>();
+```
+
+---
+
+#### Number getSessionTimeout()
+
+Returns the *negotiated* session timeout (in milliseconds) for this client
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.ConnectionManager.prototype.getSessionTimeout" id="apidoc.element.node-zookeeper-client.ConnectionManager.prototype.getSessionTimeout">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.ConnectionManager.prototype.</span>getSessionTimeout
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getSessionTimeout = function () {
+    return this.sessionTimeout;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+instance. The value returned is not valid until the client connects to a server
+and may change after a re-connect.
+
+**Example**
+
+```javascript
+var client = zookeeper.createClient({...});
+var sessionTimeout = client.<span class="apidocCodeKeywordSpan">getSessionTimeout</span>();
+```
+
+---
+
+### State
+
+After the `connect()` method is invoked, the ZooKeeper client starts its
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.ConnectionManager.prototype.onPacketQueueReadable" id="apidoc.element.node-zookeeper-client.ConnectionManager.prototype.onPacketQueueReadable">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.ConnectionManager.prototype.</span>onPacketQueueReadable
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">onPacketQueueReadable = function () {
+    var packet,
+        header;
+
+    switch (this.state) {
+    case STATES.CONNECTED:
+    case STATES.CONNECTED_READ_ONLY:
+    case STATES.CLOSING:
+        // Continue
+        break;
+    case STATES.DISCONNECTED:
+    case STATES.CONNECTING:
+    case STATES.CLOSED:
+    case STATES.SESSION_EXPIRED:
+    case STATES.AUTHENTICATION_FAILED:
+        // Skip since we can not send traffic out
+        return;
+    default:
+        throw new Error(&#x27;Unknown state: &#x27; + this.state);
+    }
+
+    while ((packet = this.packetQueue.shift()) !== undefined) {
+        header = packet.request.header;
+        if (header !== null &#x26;&#x26;
+                header.type !== jute.OP_CODES.PING &#x26;&#x26;
+                header.type !== jute.OP_CODES.AUTH) {
+
+            header.xid = this.xid;
+            this.xid += 1;
+
+            // Only put requests that are not connect, ping and auth into
+            // the pending queue.
+            this.pendingQueue.push(packet);
+        }
+
+        if (!this.socket.write(packet.request.toBuffer())) {
+            // Back pressure is handled here, when the socket emit
+            // drain event, this method will be invoked again.
+            break;
+        }
+
+        if (header.type === jute.OP_CODES.CLOSE_SESSION) {
+            // The close session should be the final packet sent to the
+            // server.
+            break;
+        }
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    self.sessionId = connectResponse.sessionId;
+    self.sessionPassword = connectResponse.passwd;
+    self.updateTimeout(connectResponse.timeOut);
+
+    self.setState(STATES.CONNECTED);
+
+    // Check if we have anything to send out just in case.
+    self.<span class="apidocCodeKeywordSpan">onPacketQueueReadable</span>();
+
+    self.socket.setTimeout(
+        self.pingTimeout,
+        self.onSocketTimeout.bind(self)
+    );
+
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.ConnectionManager.prototype.onSocketClosed" id="apidoc.element.node-zookeeper-client.ConnectionManager.prototype.onSocketClosed">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.ConnectionManager.prototype.</span>onSocketClosed
+        <span class="apidocSignatureSpan">(hasError)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">onSocketClosed = function (hasError) {
+    var retry = false,
+        errorCode,
+        pendingPacket;
+
+    switch (this.state) {
+    case STATES.CLOSING:
+        errorCode = Exception.CONNECTION_LOSS;
+        retry = false;
+        break;
+    case STATES.SESSION_EXPIRED:
+        errorCode = Exception.SESSION_EXPIRED;
+        retry = false;
+        break;
+    case STATES.AUTHENTICATION_FAILED:
+        errorCode = Exception.AUTH_FAILED;
+        retry = false;
+        break;
+    default:
+        errorCode = Exception.CONNECTION_LOSS;
+        retry = true;
+    }
+
+    this.cleanupPendingQueue(errorCode);
+    this.setState(STATES.DISCONNECTED);
+
+    if (retry) {
+        this.connect();
+    } else {
+        this.setState(STATES.CLOSED);
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.ConnectionManager.prototype.onSocketConnectTimeout" id="apidoc.element.node-zookeeper-client.ConnectionManager.prototype.onSocketConnectTimeout">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.ConnectionManager.prototype.</span>onSocketConnectTimeout
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">onSocketConnectTimeout = function () {
+    // Destroy the current socket so the socket closed event
+    // will be trigger.
+    this.socket.destroy();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.ConnectionManager.prototype.onSocketConnected" id="apidoc.element.node-zookeeper-client.ConnectionManager.prototype.onSocketConnected">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.ConnectionManager.prototype.</span>onSocketConnected
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">onSocketConnected = function () {
+    var connectRequest,
+        authRequest,
+        setWatchesRequest,
+        header,
+        payload;
+
+    if (this.connectTimeoutHandler) {
+        clearTimeout(this.connectTimeoutHandler);
+    }
+
+    connectRequest = new jute.Request(null, new jute.protocol.ConnectRequest(
+        jute.PROTOCOL_VERSION,
+        this.zxid,
+        this.sessionTimeout,
+        this.sessionId,
+        this.sessionPassword
+    ));
+
+    // XXX No read only support yet.
+    this.socket.write(connectRequest.toBuffer());
+
+    // Set auth info
+    if (this.credentials.length &#x3e; 0) {
+        this.credentials.forEach(function (credential) {
+            header = new jute.protocol.RequestHeader();
+            payload = new jute.protocol.AuthPacket();
+
+            header.xid = jute.XID_AUTHENTICATION;
+            header.type = jute.OP_CODES.AUTH;
+
+            payload.type = 0;
+            payload.scheme = credential.scheme;
+            payload.auth = credential.auth;
+
+            authRequest = new jute.Request(header, payload);
+            this.queue(authRequest);
+
+        },  this);
+    }
+
+    // Reset the watchers if we have any.
+    if (!this.watcherManager.isEmpty()) {
+        header = new jute.protocol.RequestHeader();
+        payload = new jute.protocol.SetWatches();
+
+        header.type = jute.OP_CODES.SET_WATCHES;
+        header.xid = jute.XID_SET_WATCHES;
+
+        payload.setChrootPath(this.chrootPath);
+        payload.relativeZxid = this.zxid;
+        payload.dataWatches = this.watcherManager.getDataWatcherPaths();
+        payload.existWatches = this.watcherManager.getExistenceWatcherPaths();
+        payload.childWatches = this.watcherManager.getChildWatcherPaths();
+
+        setWatchesRequest = new jute.Request(header, payload);
+        this.queue(setWatchesRequest);
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.ConnectionManager.prototype.onSocketData" id="apidoc.element.node-zookeeper-client.ConnectionManager.prototype.onSocketData">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.ConnectionManager.prototype.</span>onSocketData
+        <span class="apidocSignatureSpan">(buffer)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">onSocketData = function (buffer) {
+    var self = this,
+        offset = 0,
+        size = 0,
+        connectResponse,
+        pendingPacket,
+        responseHeader,
+        responsePayload,
+        response,
+        event;
+
+    // Combine the pending buffer with the new buffer.
+    if (self.pendingBuffer) {
+        buffer = Buffer.concat(
+            [self.pendingBuffer, buffer],
+            self.pendingBuffer.length + buffer.length
+        );
+    }
+
+    // We need at least 4 bytes
+    if (buffer.length &#x3c; 4) {
+        self.pendingBuffer = buffer;
+        return;
+    }
+
+    size = buffer.readInt32BE(offset);
+    offset += 4;
+
+    if (buffer.length &#x3c; size + 4) {
+        // More data are coming.
+        self.pendingBuffer = buffer;
+        return;
+    }
+
+    if (buffer.length === size + 4) {
+        // The size is perfect.
+        self.pendingBuffer = null;
+    } else {
+        // We have extra bytes, splice them out as pending buffer.
+        self.pendingBuffer = buffer.slice(size + 4);
+        buffer = buffer.slice(0, size + 4);
+    }
+
+    if (self.state === STATES.CONNECTING) {
+        // Handle connect response.
+        connectResponse = new jute.protocol.ConnectResponse();
+        offset += connectResponse.deserialize(buffer, offset);
+
+
+        if (connectResponse.timeOut &#x3c;= 0) {
+            self.setState(STATES.SESSION_EXPIRED);
+
+        } else {
+            // Reset the server connection attempts since we connected now.
+            self.serverAttempts = 0;
+
+            self.sessionId = connectResponse.sessionId;
+            self.sessionPassword = connectResponse.passwd;
+            self.updateTimeout(connectResponse.timeOut);
+
+            self.setState(STATES.CONNECTED);
+
+            // Check if we have anything to send out just in case.
+            self.onPacketQueueReadable();
+
+            self.socket.setTimeout(
+                self.pingTimeout,
+                self.onSocketTimeout.bind(self)
+            );
+
+        }
+    } else {
+        // Handle  all other repsonses.
+        responseHeader = new jute.protocol.ReplyHeader();
+        offset += responseHeader.deserialize(buffer, offset);
+
+        //TODO BETTTER LOGGING
+        switch (responseHeader.xid) {
+        case jute.XID_PING:
+            break;
+        case jute.XID_AUTHENTICATION:
+            if (responseHeader.err === Exception.AUTH_FAILED) {
+                self.setState(STATES.AUTHENTICATION_FAILED);
+            }
+            break;
+        case jute.XID_NOTIFICATION:
+            event = new jute.protocol.WatcherEvent();
+
+            if (self.chrootPath) {
+                event.setChrootPath(self.chrootPath);
+            }
+
+            offset += event.deserialize(buffer, offset);
+            self.watcherManager.emit(event);
+            break;
+        default:
+            pendingPacket = self.pendingQueue.shift();
+
+            if (!pendingPacket) {
+                // TODO, better error handling and logging need to be done.
+                // Need to clean up and do a reconnect.
+                // throw new Error(
+                //    &#x27;Nothing in pending queue but got data from server.&#x27;
+                // );
+                self.socket.destroy(); // this will trigger reconnect
+                return;
+            }
+
+            if (pendingPacket.request.header.xid !== responseHeader.xid) {
+                // TODO, better error handling/logging need to bee done here.
+                // Need to clean up and do a reconnect.
+                //throw new Error(
+                    //&#x27;Xid out of order. Got xid: &#x27; +
+                        //responseHeader.xid + &#x27; with error code: &#x27; +
+                        //responseHeader.err + &#x27;, expected xid: &#x27; +
+                        //pendingPacket.request.header.xid + &#x27;.&#x27;
+                //);
+                self.socket.destroy(); // this will trigger reconnect
+                return;
+            }
+
+            if (responseHeader.zxid) {
+                // TODO, In Java implementation, the condition is to
+                // check whether the long zxid is greater than 0, here
+                // use buffer so we simplify. ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+                }
+            }
+        }
+    }
+
+    // We have more data to process, need to recursively process it.
+    if (self.pendingBuffer) {
+        self.<span class="apidocCodeKeywordSpan">onSocketData</span>(new Buffer(0));
+    }
+};
+
+ConnectionManager.prototype.onSocketDrain = function () {
+    // Trigger write on socket.
+    this.onPacketQueueReadable();
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.ConnectionManager.prototype.onSocketDrain" id="apidoc.element.node-zookeeper-client.ConnectionManager.prototype.onSocketDrain">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.ConnectionManager.prototype.</span>onSocketDrain
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">onSocketDrain = function () {
+    // Trigger write on socket.
+    this.onPacketQueueReadable();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.ConnectionManager.prototype.onSocketError" id="apidoc.element.node-zookeeper-client.ConnectionManager.prototype.onSocketError">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.ConnectionManager.prototype.</span>onSocketError
+        <span class="apidocSignatureSpan">(error)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">onSocketError = function (error) {
+    if (this.connectTimeoutHandler) {
+        clearTimeout(this.connectTimeoutHandler);
+    }
+
+    // After socket error, the socket closed event will be triggered,
+    // we will retry connect in that listener function.
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.ConnectionManager.prototype.onSocketTimeout" id="apidoc.element.node-zookeeper-client.ConnectionManager.prototype.onSocketTimeout">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.ConnectionManager.prototype.</span>onSocketTimeout
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">onSocketTimeout = function () {
+    var header,
+        request;
+
+    if (this.socket &#x26;&#x26;
+            (this.state === STATES.CONNECTED ||
+             this.state === STATES.CONNECTED_READ_ONLY)) {
+        header = new jute.protocol.RequestHeader(
+            jute.XID_PING,
+            jute.OP_CODES.PING
+        );
+
+        request = new jute.Request(header, null);
+        this.queue(request);
+
+        // Re-register the timeout handler since it only fired once.
+        this.socket.setTimeout(
+            this.pingTimeout,
+            this.onSocketTimeout.bind(this)
+        );
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.ConnectionManager.prototype.queue" id="apidoc.element.node-zookeeper-client.ConnectionManager.prototype.queue">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.ConnectionManager.prototype.</span>queue
+        <span class="apidocSignatureSpan">(request, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">queue = function (request, callback) {
+    if (typeof request !== &#x27;object&#x27;) {
+        throw new Error(&#x27;request must be a valid instance of jute.Request.&#x27;);
+    }
+
+    if (this.chrootPath &#x26;&#x26; request.payload) {
+        request.payload.setChrootPath(this.chrootPath);
+    }
+
+
+    callback = callback || function () {};
+
+    switch (this.state) {
+    case STATES.DISCONNECTED:
+    case STATES.CONNECTING:
+    case STATES.CONNECTED:
+    case STATES.CONNECTED_READ_ONLY:
+        // queue the packet
+        this.packetQueue.push({
+            request : request,
+            callback : callback
+        });
+        break;
+    case STATES.CLOSING:
+        if (request.header &#x26;&#x26;
+                request.header.type === jute.OP_CODES.CLOSE_SESSION) {
+            this.packetQueue.push({
+                request : request,
+                callback : callback
+            });
+        } else {
+            callback(Exception.create(Exception.CONNECTION_LOSS));
+        }
+        break;
+    case STATES.CLOSED:
+        callback(Exception.create(Exception.CONNECTION_LOSS));
+        return;
+    case STATES.SESSION_EXPIRED:
+        callback(Exception.create(Exception.SESSION_EXPIRED));
+        return;
+    case STATES.AUTHENTICATION_FAILED:
+        callback(Exception.create(Exception.AUTH_FAILED));
+        return;
+    default:
+        throw new Error(&#x27;Unknown state: &#x27; + this.state);
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    }
+
+    request = new jute.Request(header, payload);
+
+    attempt(
+        self,
+        function (attempts, next) {
+self.connectionManager.<span class="apidocCodeKeywordSpan">queue</span>(request, function (error, response) {
+    if (error) {
+        next(error);
+        return;
+    }
+
+    next(null, response.payload.path);
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.ConnectionManager.prototype.registerChildWatcher" id="apidoc.element.node-zookeeper-client.ConnectionManager.prototype.registerChildWatcher">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.ConnectionManager.prototype.</span>registerChildWatcher
+        <span class="apidocSignatureSpan">(path, watcher)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">registerChildWatcher = function (path, watcher) {
+    this.watcherManager.registerChildWatcher(path, watcher);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        self.connectionManager.queue(request, function (error, response) {
+            if (error) {
+                next(error);
+                return;
+            }
+
+            if (watcher) {
+                self.connectionManager.<span class="apidocCodeKeywordSpan">registerChildWatcher</span>(path, watcher);
+            }
+
+            next(null, response.payload.children, response.payload.stat);
+        });
+    },
+    callback
+);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.ConnectionManager.prototype.registerDataWatcher" id="apidoc.element.node-zookeeper-client.ConnectionManager.prototype.registerDataWatcher">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.ConnectionManager.prototype.</span>registerDataWatcher
+        <span class="apidocSignatureSpan">(path, watcher)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">registerDataWatcher = function (path, watcher) {
+    this.watcherManager.registerDataWatcher(path, watcher);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        self.connectionManager.queue(request, function (error, response) {
+            if (error) {
+                next(error);
+                return;
+            }
+
+            if (watcher) {
+                self.connectionManager.<span class="apidocCodeKeywordSpan">registerDataWatcher</span>(path, watcher);
+            }
+
+            next(null, response.payload.data, response.payload.stat);
+        });
+    },
+    callback
+);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.ConnectionManager.prototype.registerExistenceWatcher" id="apidoc.element.node-zookeeper-client.ConnectionManager.prototype.registerExistenceWatcher">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.ConnectionManager.prototype.</span>registerExistenceWatcher
+        <span class="apidocSignatureSpan">(path, watcher)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">registerExistenceWatcher = function (path, watcher) {
+    this.watcherManager.registerExistenceWatcher(path, watcher);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+if (watcher) {
+    if (existence) {
+        self.connectionManager.registerDataWatcher(
+            path,
+            watcher
+        );
+    } else {
+        self.connectionManager.<span class="apidocCodeKeywordSpan">registerExistenceWatcher</span>(
+            path,
+            watcher
+        );
+    }
+}
+
+next(
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.ConnectionManager.prototype.setState" id="apidoc.element.node-zookeeper-client.ConnectionManager.prototype.setState">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.ConnectionManager.prototype.</span>setState
+        <span class="apidocSignatureSpan">(state)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setState = function (state) {
+    if (typeof state !== &#x27;number&#x27;) {
+        throw new Error(&#x27;state must be a valid number.&#x27;);
+    }
+
+    if (this.state !== state) {
+        this.state = state;
+        this.emit(&#x27;state&#x27;, this.state);
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ConnectionManager.prototype.getSessionTimeout = function () {
+    return this.sessionTimeout;
+};
+
+ConnectionManager.prototype.connect = function () {
+    var self = this;
+
+    self.<span class="apidocCodeKeywordSpan">setState</span>(STATES.CONNECTING);
+
+    self.findNextServer(function (server) {
+self.socket = net.connect(server);
+
+self.connectTimeoutHandler = setTimeout(
+    self.onSocketConnectTimeout.bind(self),
+    self.connectTimeout
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.ConnectionManager.prototype.updateTimeout" id="apidoc.element.node-zookeeper-client.ConnectionManager.prototype.updateTimeout">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.ConnectionManager.prototype.</span>updateTimeout
+        <span class="apidocSignatureSpan">(sessionTimeout)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">updateTimeout = function (sessionTimeout) {
+    this.sessionTimeout = sessionTimeout;
+
+    // Designed to have time to try all the servers.
+    this.connectTimeout = Math.floor(sessionTimeout / this.servers.length);
+
+    // We at least send out one ping one third of the session timeout, so
+    // the read timeout is two third of the session timeout.
+    this.pingTimeout = Math.floor(this.sessionTimeout / 3);
+    //this.readTimeout = Math.floor(sessionTimeout * 2 / 3);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+this.serverAttempts = 0;
+
+this.state = STATES.DISCONNECTED;
+
+this.options = options;
+this.spinDelay = options.spinDelay;
+
+this.<span class="apidocCodeKeywordSpan">updateTimeout</span>(options.sessionTimeout);
+this.connectTimeoutHandler = null;
+
+this.xid = 0;
+
+this.sessionId = new Buffer(8);
+if (Buffer.isBuffer(options.sessionId)) {
+    options.sessionId.copy(this.sessionId);
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-zookeeper-client.ConnectionStringParser" id="apidoc.module.node-zookeeper-client.ConnectionStringParser">module node-zookeeper-client.ConnectionStringParser</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.ConnectionStringParser.ConnectionStringParser" id="apidoc.element.node-zookeeper-client.ConnectionStringParser.ConnectionStringParser">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.</span>ConnectionStringParser
+        <span class="apidocSignatureSpan">(connectionString)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function ConnectionStringParser(connectionString) {
+    assert(
+        connectionString &#x26;&#x26; typeof connectionString === &#x27;string&#x27;,
+        &#x27;connectionString must be a non-empty string.&#x27;
+    );
+
+    this.connectionString = connectionString;
+
+    // Handle chroot
+    var index = connectionString.indexOf(&#x27;/&#x27;),
+        hostList = [],
+        servers = [];
+
+    if (index !== -1 &#x26;&#x26; index !== (connectionString.length - 1)) {
+        this.chrootPath = connectionString.substring(index);
+        Path.validate(this.chrootPath);
+    } else {
+        this.chrootPath = undefined;
+    }
+
+    if (index !== -1) {
+        hostList = connectionString.substring(0, index).split(&#x27;,&#x27;);
+    } else {
+        hostList = connectionString.split(&#x27;,&#x27;);
+    }
+
+    hostList.filter(function (item) {
+        // Filter out empty string.
+        return item;
+    }).forEach(function (item) {
+        var parts = item.split(&#x27;:&#x27;);
+        servers.push({
+            host : parts[0],
+            port : parts[1] || DEFAULT_PORT
+        });
+    });
+
+    assert(
+        servers.length &#x3e; 0,
+        &#x27;connectionString must contain at least one server.&#x27;
+    );
+
+    // Randomize the list.
+    this.servers = u.shuffle(servers);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-zookeeper-client.ConnectionStringParser.prototype" id="apidoc.module.node-zookeeper-client.ConnectionStringParser.prototype">module node-zookeeper-client.ConnectionStringParser.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.ConnectionStringParser.prototype.getChrootPath" id="apidoc.element.node-zookeeper-client.ConnectionStringParser.prototype.getChrootPath">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.ConnectionStringParser.prototype.</span>getChrootPath
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getChrootPath = function () {
+    return this.chrootPath;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+function ConnectionManager(connectionString, options, stateListener) {
+events.EventEmitter.call(this);
+
+this.watcherManager = new WatcherManager();
+this.connectionStringParser = new ConnectionStringParser(connectionString);
+
+this.servers = this.connectionStringParser.getServers();
+this.chrootPath = this.connectionStringParser.<span class="apidocCodeKeywordSpan">getChrootPath</span>();
+this.nextServerIndex = 0;
+this.serverAttempts = 0;
+
+this.state = STATES.DISCONNECTED;
+
+this.options = options;
+this.spinDelay = options.spinDelay;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.ConnectionStringParser.prototype.getConnectionString" id="apidoc.element.node-zookeeper-client.ConnectionStringParser.prototype.getConnectionString">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.ConnectionStringParser.prototype.</span>getConnectionString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getConnectionString = function () {
+    return this.connectionString;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.ConnectionStringParser.prototype.getServers" id="apidoc.element.node-zookeeper-client.ConnectionStringParser.prototype.getServers">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.ConnectionStringParser.prototype.</span>getServers
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getServers = function () {
+    return this.servers.slice(0);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ */
+function ConnectionManager(connectionString, options, stateListener) {
+events.EventEmitter.call(this);
+
+this.watcherManager = new WatcherManager();
+this.connectionStringParser = new ConnectionStringParser(connectionString);
+
+this.servers = this.connectionStringParser.<span class="apidocCodeKeywordSpan">getServers</span>();
+this.chrootPath = this.connectionStringParser.getChrootPath();
+this.nextServerIndex = 0;
+this.serverAttempts = 0;
+
+this.state = STATES.DISCONNECTED;
+
+this.options = options;
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-zookeeper-client.Event" id="apidoc.module.node-zookeeper-client.Event">module node-zookeeper-client.Event</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.Event.Event" id="apidoc.element.node-zookeeper-client.Event.Event">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.</span>Event
+        <span class="apidocSignatureSpan">(type, name, path)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Event(type, name, path) {
+    validateType(type);
+    assert(
+        name &#x26;&#x26; typeof name === &#x27;string&#x27;,
+        &#x27;name must be a non-empty string.&#x27;
+    );
+
+    this.type = type;
+    this.name = name;
+    this.path = path;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.Event.create" id="apidoc.element.node-zookeeper-client.Event.create">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.Event.</span>create
+        <span class="apidocSignatureSpan">(watcherEvent)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function create(watcherEvent) {
+    assert(watcherEvent, &#x27;watcherEvent must be a valid object.&#x27;);
+    validateType(watcherEvent.type);
+
+    var name,
+        i = 0,
+        keys = Object.keys(TYPES);
+
+    while (i &#x3c; keys.length) {
+        if (TYPES[keys[i]] === watcherEvent.type) {
+            name = keys[i];
+            break;
+        }
+
+        i += 1;
+    }
+
+    return new Event(watcherEvent.type, name, watcherEvent.path);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+var client = zookeeper.createClient(&#x27;localhost:2181&#x27;);
+var path = process.argv[2];
+
+client.once(&#x27;connected&#x27;, function () {
+    console.log(&#x27;Connected to the server.&#x27;);
+
+    client.<span class="apidocCodeKeywordSpan">create</span>(path, function (error) {
+if (error) {
+    console.log(&#x27;Failed to create node: %s due to: %s.&#x27;, path, error);
+} else {
+    console.log(&#x27;Node: %s is successfully created.&#x27;, path);
+}
+
+client.close();
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-zookeeper-client.Event.prototype" id="apidoc.module.node-zookeeper-client.Event.prototype">module node-zookeeper-client.Event.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.Event.prototype.getName" id="apidoc.element.node-zookeeper-client.Event.prototype.getName">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.Event.prototype.</span>getName
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getName = function () {
+    return this.name;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.Event.prototype.getPath" id="apidoc.element.node-zookeeper-client.Event.prototype.getPath">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.Event.prototype.</span>getPath
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getPath = function () {
+    return this.path;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.Event.prototype.getType" id="apidoc.element.node-zookeeper-client.Event.prototype.getType">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.Event.prototype.</span>getType
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getType = function () {
+    return this.type;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.Event.prototype.toString" id="apidoc.element.node-zookeeper-client.Event.prototype.toString">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.Event.prototype.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toString = function () {
+    var result = this.name + &#x27;[&#x27; + this.type + &#x27;]&#x27;;
+
+    if (this.path) {
+        result += &#x27;@&#x27; + this.path;
+    }
+
+    return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    },
+    function (error, data, stat) {
+        if (error) {
+            console.log(error.stack);
+            return;
+        }
+
+        console.log(&#x27;Got data: %s&#x27;, data.<span class="apidocCodeKeywordSpan">toString</span>(&#x27;utf8&#x27;));
+    }
+);
+```
+
+---
+
+#### void setData(path, data, [version], callback)
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-zookeeper-client.Exception" id="apidoc.module.node-zookeeper-client.Exception">module node-zookeeper-client.Exception</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.Exception.Exception" id="apidoc.element.node-zookeeper-client.Exception.Exception">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.</span>Exception
+        <span class="apidocSignatureSpan">(code, name, path, ctor)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Exception(code, name, path, ctor) {
+    if (!ctor) {
+        ctor = path;
+        path = undefined;
+    }
+
+    validateCode(code);
+    assert(
+        name &#x26;&#x26; typeof name === &#x27;string&#x27;,
+        &#x27;name must be a non-empty string.&#x27;
+    );
+    assert(typeof ctor === &#x27;function&#x27;, &#x27;ctor must be a function.&#x27;);
+
+    Error.captureStackTrace(this, ctor || Exception);
+    this.code = code;
+    this.name = name;
+    this.path = path;
+
+    this.message = &#x27;Exception: &#x27; + name + &#x27;[&#x27; + code + &#x27;]&#x27;;
+
+    if (path) {
+        this.message += &#x27;@&#x27; + path;
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.Exception.create" id="apidoc.element.node-zookeeper-client.Exception.create">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.Exception.</span>create
+        <span class="apidocSignatureSpan">(code, path)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function create(code, path) {
+    validateCode(code);
+
+    var name,
+        i = 0,
+        keys = Object.keys(CODES);
+
+    while (i &#x3c; keys.length) {
+        if (CODES[keys[i]] === code) {
+            name = keys[i];
+            break;
+        }
+
+        i += 1;
+    }
+
+    return new Exception(code, name, path, create);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+var client = zookeeper.createClient(&#x27;localhost:2181&#x27;);
+var path = process.argv[2];
+
+client.once(&#x27;connected&#x27;, function () {
+    console.log(&#x27;Connected to the server.&#x27;);
+
+    client.<span class="apidocCodeKeywordSpan">create</span>(path, function (error) {
+if (error) {
+    console.log(&#x27;Failed to create node: %s due to: %s.&#x27;, path, error);
+} else {
+    console.log(&#x27;Node: %s is successfully created.&#x27;, path);
+}
+
+client.close();
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.Exception.super_" id="apidoc.element.node-zookeeper-client.Exception.super_">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.Exception.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Error() { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-zookeeper-client.Exception.prototype" id="apidoc.module.node-zookeeper-client.Exception.prototype">module node-zookeeper-client.Exception.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.Exception.prototype.getCode" id="apidoc.element.node-zookeeper-client.Exception.prototype.getCode">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.Exception.prototype.</span>getCode
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getCode = function () {
+    return this.code;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* `Exception.AUTH_FAILED`
+
+**Example**
+
+```javascript
+zookeeper.create(&#x27;/test/demo&#x27;, function (error, path) {
+if (error) {
+    if (error.<span class="apidocCodeKeywordSpan">getCode</span>() == zookeeper.Exception.NODE_EXISTS) {
+        console.log(&#x27;Node exists.&#x27;);
+    } else {
+        console.log(error.stack);
+    }
+    return;
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.Exception.prototype.getName" id="apidoc.element.node-zookeeper-client.Exception.prototype.getName">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.Exception.prototype.</span>getName
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getName = function () {
+    return this.name;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.Exception.prototype.getPath" id="apidoc.element.node-zookeeper-client.Exception.prototype.getPath">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.Exception.prototype.</span>getPath
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getPath = function () {
+    return this.path;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.Exception.prototype.toString" id="apidoc.element.node-zookeeper-client.Exception.prototype.toString">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.Exception.prototype.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toString = function () {
+    return this.message;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    },
+    function (error, data, stat) {
+        if (error) {
+            console.log(error.stack);
+            return;
+        }
+
+        console.log(&#x27;Got data: %s&#x27;, data.<span class="apidocCodeKeywordSpan">toString</span>(&#x27;utf8&#x27;));
+    }
+);
+```
+
+---
+
+#### void setData(path, data, [version], callback)
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-zookeeper-client.Exception.super_" id="apidoc.module.node-zookeeper-client.Exception.super_">module node-zookeeper-client.Exception.super_</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.Exception.super_.super_" id="apidoc.element.node-zookeeper-client.Exception.super_.super_">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.Exception.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Error() { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.Exception.super_.captureStackTrace" id="apidoc.element.node-zookeeper-client.Exception.super_.captureStackTrace">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.Exception.super_.</span>captureStackTrace
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function captureStackTrace() { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-zookeeper-client.Id" id="apidoc.module.node-zookeeper-client.Id">module node-zookeeper-client.Id</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.Id.Id" id="apidoc.element.node-zookeeper-client.Id.Id">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.</span>Id
+        <span class="apidocSignatureSpan">(scheme, id)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Id(scheme, id) {
+    if (!scheme || typeof scheme !== &#x27;string&#x27;) {
+        throw new Error(&#x27;scheme must be a non-empty string.&#x27;);
+    }
+
+    if (typeof id !== &#x27;string&#x27;) {
+        throw new Error(&#x27;id must be a string.&#x27;);
+    }
+
+    this.scheme = scheme;
+    this.id = id;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+```javascript
+zookeeper.setACL(
+&#x27;/test/demo&#x27;,
+[
+    new zookeeper.ACL(
+        zookeeeper.Permission.ADMIN,
+        new zookeeper.<span class="apidocCodeKeywordSpan">Id</span>(&#x27;ip&#x27;, &#x27;127.0.0.1&#x27;)
+    )
+],
+function (error, acls, stat) {
+    if (error) {
+        console.log(error.stack);
+        return;
+    }
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.Id.fromRecord" id="apidoc.element.node-zookeeper-client.Id.fromRecord">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.Id.</span>fromRecord
+        <span class="apidocSignatureSpan">(record)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function fromRecord(record) {
+    if (!(record instanceof jute.data.Id)) {
+        throw new Error(&#x27;record must be an instace of jute.data.Id.&#x27;);
+    }
+
+    return new Id(record.scheme, record.id);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+            return;
+        }
+
+        var acls;
+
+        if (Array.isArray(response.payload.acl)) {
+            acls = response.payload.acl.map(function (item) {
+                return ACL.<span class="apidocCodeKeywordSpan">fromRecord</span>(item);
+            });
+        }
+
+        next(null, acls, response.payload.stat);
+    });
+},
+callback
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-zookeeper-client.Id.prototype" id="apidoc.module.node-zookeeper-client.Id.prototype">module node-zookeeper-client.Id.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.Id.prototype.toRecord" id="apidoc.element.node-zookeeper-client.Id.prototype.toRecord">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.Id.prototype.</span>toRecord
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toRecord = function () {
+    return new jute.data.Id(
+        this.scheme,
+        this.id
+    );
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+header = new jute.protocol.RequestHeader();
+header.type = jute.OP_CODES.CREATE;
+
+payload = new jute.protocol.CreateRequest();
+payload.path = path;
+payload.acl = acls.map(function (item) {
+    return item.<span class="apidocCodeKeywordSpan">toRecord</span>();
+});
+payload.flags = mode;
+
+if (Buffer.isBuffer(data)) {
+    payload.data = new Buffer(data.length);
+    data.copy(payload.data);
+}
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-zookeeper-client.PacketQueue" id="apidoc.module.node-zookeeper-client.PacketQueue">module node-zookeeper-client.PacketQueue</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.PacketQueue.PacketQueue" id="apidoc.element.node-zookeeper-client.PacketQueue.PacketQueue">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.</span>PacketQueue
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function PacketQueue() {
+    events.EventEmitter.call(this);
+
+    this.queue = [];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.PacketQueue.super_" id="apidoc.element.node-zookeeper-client.PacketQueue.super_">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.PacketQueue.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function EventEmitter() {
+  EventEmitter.init.call(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-zookeeper-client.PacketQueue.prototype" id="apidoc.module.node-zookeeper-client.PacketQueue.prototype">module node-zookeeper-client.PacketQueue.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.PacketQueue.prototype.push" id="apidoc.element.node-zookeeper-client.PacketQueue.prototype.push">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.PacketQueue.prototype.</span>push
+        <span class="apidocSignatureSpan">(packet)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">push = function (packet) {
+    if (typeof packet !== &#x27;object&#x27;) {
+        throw new Error(&#x27;packet must be a valid object.&#x27;);
+    }
+
+    this.queue.push(packet);
+
+    this.emit(&#x27;readable&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+            });
+        },
+        function (error) {
+            var args = [],
+                result = results[count - 1];
+
+            if (callback) {
+                args.<span class="apidocCodeKeywordSpan">push</span>(result.error);
+                Array.prototype.push.apply(args, result.args);
+
+                callback.apply(null, args);
+            }
+        }
+    );
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.PacketQueue.prototype.shift" id="apidoc.element.node-zookeeper-client.PacketQueue.prototype.shift">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.PacketQueue.prototype.</span>shift
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">shift = function () {
+    return this.queue.shift();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+ConnectionManager.prototype.registerExistenceWatcher = function (path, watcher) {
+    this.watcherManager.registerExistenceWatcher(path, watcher);
+};
+
+ConnectionManager.prototype.cleanupPendingQueue = function (errorCode) {
+    var pendingPacket = this.pendingQueue.<span class="apidocCodeKeywordSpan">shift</span>();
+
+    while (pendingPacket) {
+if (pendingPacket.callback) {
+    pendingPacket.callback(Exception.create(errorCode));
+}
+
+pendingPacket = this.pendingQueue.shift();
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.PacketQueue.prototype.unshift" id="apidoc.element.node-zookeeper-client.PacketQueue.prototype.unshift">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.PacketQueue.prototype.</span>unshift
+        <span class="apidocSignatureSpan">(packet)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">unshift = function (packet) {
+    if (typeof packet !== &#x27;object&#x27;) {
+        throw new Error(&#x27;packet must be a valid object.&#x27;);
+    }
+
+    this.queue.unshift(packet);
+    this.emit(&#x27;readable&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+
+PacketQueue.prototype.unshift = function (packet) {
+    if (typeof packet !== &#x27;object&#x27;) {
+        throw new Error(&#x27;packet must be a valid object.&#x27;);
+    }
+
+    this.queue.<span class="apidocCodeKeywordSpan">unshift</span>(packet);
+    this.emit(&#x27;readable&#x27;);
+};
+
+PacketQueue.prototype.shift = function () {
+    return this.queue.shift();
+};
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-zookeeper-client.Path" id="apidoc.module.node-zookeeper-client.Path">module node-zookeeper-client.Path</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.Path.validate" id="apidoc.element.node-zookeeper-client.Path.validate">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.Path.</span>validate
+        <span class="apidocSignatureSpan">(path)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function validate(path) {
+    assert(
+        path &#x26;&#x26; typeof path === &#x27;string&#x27;,
+        &#x27;Node path must be a non-empty string.&#x27;
+    );
+
+    assert(path[0] === &#x27;/&#x27;, &#x27;Node path must start with / character.&#x27;);
+
+    // Shortcut, no need to check more since the path is the root.
+    if (path.length === 1) {
+        return;
+    }
+
+    assert(
+        path[path.length - 1] !== &#x27;/&#x27;,
+        &#x27;Node path must not end with / character.&#x27;
+    );
+
+    assert(
+        !/\/\//.test(path),
+        &#x27;Node path must not contain empty node name.&#x27;
+    );
+
+    assert(
+        !/\/\.(\.)?(\/|$)/.test(path),
+        &#x27;Node path must not contain relative path(s).&#x27;
+    );
+
+    // TODO filter out special characters
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Client.prototype.create = function (path, data, acls, mode, callback) {
+var self = this,
+    optionalArgs = [data, acls, mode, callback],
+    header,
+    payload,
+    request;
+
+Path.<span class="apidocCodeKeywordSpan">validate</span>(path);
+
+// Reset arguments so we can reassign correct value to them.
+data = acls = mode = callback = undefined;
+optionalArgs.forEach(function (arg, index) {
+    if (Array.isArray(arg)) {
+        acls = arg;
+    } else if (typeof arg === &#x27;number&#x27;) {
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-zookeeper-client.Transaction" id="apidoc.module.node-zookeeper-client.Transaction">module node-zookeeper-client.Transaction</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.Transaction.Transaction" id="apidoc.element.node-zookeeper-client.Transaction.Transaction">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.</span>Transaction
+        <span class="apidocSignatureSpan">(connectionManager)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Transaction(connectionManager) {
+    if (!(this instanceof Transaction)) {
+        return new Transaction(connectionManager);
+    }
+
+    assert(
+        connectionManager instanceof ConnectionManager,
+        &#x27;connectionManager must be an instance of ConnectionManager.&#x27;
+    );
+
+    this.ops = [];
+    this.connectionManager = connectionManager;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-zookeeper-client.Transaction.prototype" id="apidoc.module.node-zookeeper-client.Transaction.prototype">module node-zookeeper-client.Transaction.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.Transaction.prototype.check" id="apidoc.element.node-zookeeper-client.Transaction.prototype.check">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.Transaction.prototype.</span>check
+        <span class="apidocSignatureSpan">(path, version)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">check = function (path, version) {
+    version = version || -1;
+
+    Path.validate(path);
+    assert(typeof version === &#x27;number&#x27;, &#x27;version must be a number.&#x27;);
+
+    this.ops.push({
+        type : jute.OP_CODES.CHECK,
+        path : path,
+        version : version
+    });
+
+    return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.Transaction.prototype.commit" id="apidoc.element.node-zookeeper-client.Transaction.prototype.commit">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.Transaction.prototype.</span>commit
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">commit = function (callback) {
+    assert(typeof callback === &#x27;function&#x27;, &#x27;callback must be a function&#x27;);
+
+    var self = this,
+        header = new jute.protocol.RequestHeader(),
+        payload = new jute.TransactionRequest(this.ops),
+        request;
+
+    header.type = jute.OP_CODES.MULTI;
+    request = new jute.Request(header, payload);
+
+    this.connectionManager.queue(request, function (error, response) {
+        if (error) {
+            callback(error);
+            return;
+        }
+
+        var result,
+            i;
+
+        for (i = 0; i &#x3c; response.payload.results.length; i += 1) {
+            result = response.payload.results[i];
+
+            // Find if there is an op which caused the transaction to fail.
+            if (result.type === jute.OP_CODES.ERROR &#x26;&#x26;
+                    result.err !== Exception.OK) {
+                error = Exception.create(result.err);
+                break;
+            }
+        }
+
+        callback(error, response.payload.results);
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.Transaction.prototype.create" id="apidoc.element.node-zookeeper-client.Transaction.prototype.create">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.Transaction.prototype.</span>create
+        <span class="apidocSignatureSpan">(path, data, acls, mode)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">create = function (path, data, acls, mode) {
+    var optionalArgs = [data, acls, mode],
+        self = this,
+        currentPath = &#x27;&#x27;,
+        nodes;
+
+    Path.validate(path);
+
+    // Reset arguments so we can reassign correct value to them.
+    data = acls = mode = undefined;
+    optionalArgs.forEach(function (arg, index) {
+        if (Array.isArray(arg)) {
+            acls = arg;
+        } else if (typeof arg === &#x27;number&#x27;) {
+            mode = arg;
+        } else if (Buffer.isBuffer(arg)) {
+            data = arg;
+        }
+    });
+
+    acls = Array.isArray(acls) ? acls : ACL.OPEN_ACL_UNSAFE;
+    mode = typeof mode === &#x27;number&#x27; ? mode : CreateMode.PERSISTENT;
+
+    assert(
+        data === null || data === undefined || Buffer.isBuffer(data),
+        &#x27;data must be a valid buffer, null or undefined.&#x27;
+    );
+
+    assert(acls.length &#x3e; 0, &#x27;acls must be a non-empty array.&#x27;);
+
+    this.ops.push({
+        type : jute.OP_CODES.CREATE,
+        path : path,
+        data : data,
+        acls : acls,
+        mode : mode
+    });
+
+    return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+var client = zookeeper.createClient(&#x27;localhost:2181&#x27;);
+var path = process.argv[2];
+
+client.once(&#x27;connected&#x27;, function () {
+    console.log(&#x27;Connected to the server.&#x27;);
+
+    client.<span class="apidocCodeKeywordSpan">create</span>(path, function (error) {
+if (error) {
+    console.log(&#x27;Failed to create node: %s due to: %s.&#x27;, path, error);
+} else {
+    console.log(&#x27;Node: %s is successfully created.&#x27;, path);
+}
+
+client.close();
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.Transaction.prototype.remove" id="apidoc.element.node-zookeeper-client.Transaction.prototype.remove">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.Transaction.prototype.</span>remove
+        <span class="apidocSignatureSpan">(path, version)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">remove = function (path, version) {
+    version = version || -1;
+
+    Path.validate(path);
+    assert(typeof version === &#x27;number&#x27;, &#x27;version must be a number.&#x27;);
+
+    this.ops.push({
+        type : jute.OP_CODES.DELETE,
+        path : path,
+        version : version
+    });
+
+    return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* path `String` - Path of the node.
+* version `Number` - The version of the node, optional, defaults to -1.
+* callback(error) `Function` - The callback function.
+
+**Example**
+
+```javascript
+zookeeper.<span class="apidocCodeKeywordSpan">remove</span>(&#x27;/test/demo&#x27;, -1, function (error) {
+    if (error) {
+        console.log(error.stack);
+        return;
+    }
+
+    console.log(&#x27;Node is deleted.&#x27;);
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.Transaction.prototype.setData" id="apidoc.element.node-zookeeper-client.Transaction.prototype.setData">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.Transaction.prototype.</span>setData
+        <span class="apidocSignatureSpan">(path, data, version)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setData = function (path, data, version) {
+    version = version || -1;
+
+    Path.validate(path);
+    assert(
+        data === null || data === undefined || Buffer.isBuffer(data),
+        &#x27;data must be a valid buffer, null or undefined.&#x27;
+    );
+    assert(typeof version === &#x27;number&#x27;, &#x27;version must be a number.&#x27;);
+
+    this.ops.push({
+        type : jute.OP_CODES.SET_DATA,
+        path : path,
+        data : data,
+        version : version
+    });
+
+    return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* version `Number` - The version of the node, optional, defaults to -1.
+* callback(error, stat) `Function` - The callback function. The `stat` is an
+  instance of [`Stat`](#stat).
+
+**Example**
+
+```javascript
+zookeeper.<span class="apidocCodeKeywordSpan">setData</span>(&#x27;/test/demo&#x27;, null, 2, function (error, stat) {
+    if (error) {
+        console.log(error.stack);
+        return;
+    }
+
+    console.log(&#x27;Data is set.&#x27;);
+});
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-zookeeper-client.WatcherManager" id="apidoc.module.node-zookeeper-client.WatcherManager">module node-zookeeper-client.WatcherManager</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.WatcherManager.WatcherManager" id="apidoc.element.node-zookeeper-client.WatcherManager.WatcherManager">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.</span>WatcherManager
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function WatcherManager() {
+    this.dataWatchers = {};
+    this.childWatchers = {};
+    this.existenceWatchers = {};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-zookeeper-client.WatcherManager.prototype" id="apidoc.module.node-zookeeper-client.WatcherManager.prototype">module node-zookeeper-client.WatcherManager.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.WatcherManager.prototype.emit" id="apidoc.element.node-zookeeper-client.WatcherManager.prototype.emit">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.WatcherManager.prototype.</span>emit
+        <span class="apidocSignatureSpan">(watcherEvent)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">emit = function (watcherEvent) {
+    if (!watcherEvent) {
+        throw new Error(&#x27;watcherEvent must be a valid object.&#x27;);
+    }
+
+    var emitters = [],
+        event;
+
+    switch (watcherEvent.type) {
+    case Event.NODE_DATA_CHANGED:
+    case Event.NODE_CREATED:
+        if (this.dataWatchers[watcherEvent.path]) {
+            emitters.push(this.dataWatchers[watcherEvent.path]);
+            delete this.dataWatchers[watcherEvent.path];
+        }
+
+        if (this.existenceWatchers[watcherEvent.path]) {
+            emitters.push(this.existenceWatchers[watcherEvent.path]);
+            delete this.existenceWatchers[watcherEvent.path];
+        }
+        break;
+    case Event.NODE_CHILDREN_CHANGED:
+        if (this.childWatchers[watcherEvent.path]) {
+            emitters.push(this.childWatchers[watcherEvent.path]);
+            delete this.childWatchers[watcherEvent.path];
+        }
+        break;
+    case Event.NODE_DELETED:
+        if (this.dataWatchers[watcherEvent.path]) {
+            emitters.push(this.dataWatchers[watcherEvent.path]);
+            delete this.dataWatchers[watcherEvent.path];
+        }
+        if (this.childWatchers[watcherEvent.path]) {
+            emitters.push(this.childWatchers[watcherEvent.path]);
+            delete this.childWatchers[watcherEvent.path];
+        }
+        break;
+    default:
+        throw new Error(&#x27;Unknown event type: &#x27; + watcherEvent.type);
+    }
+
+    if (emitters.length &#x3c; 1) {
+        return;
+    }
+
+    event = Event.create(watcherEvent);
+
+    emitters.forEach(function (emitter) {
+        emitter.emit(&#x27;notification&#x27;, event);
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+/**
+ * Default state listener to emit user-friendly events.
+ */
+function defaultStateListener(state) {
+switch (state) {
+case State.DISCONNECTED:
+    this.<span class="apidocCodeKeywordSpan">emit</span>(&#x27;disconnected&#x27;);
+    break;
+case State.SYNC_CONNECTED:
+    this.emit(&#x27;connected&#x27;);
+    break;
+case State.CONNECTED_READ_ONLY:
+    this.emit(&#x27;connectedReadOnly&#x27;);
+    break;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.WatcherManager.prototype.getChildWatcherPaths" id="apidoc.element.node-zookeeper-client.WatcherManager.prototype.getChildWatcherPaths">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.WatcherManager.prototype.</span>getChildWatcherPaths
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getChildWatcherPaths = function () {
+    return getWatcherPaths(this, &#x27;child&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        header.type = jute.OP_CODES.SET_WATCHES;
+        header.xid = jute.XID_SET_WATCHES;
+
+        payload.setChrootPath(this.chrootPath);
+        payload.relativeZxid = this.zxid;
+        payload.dataWatches = this.watcherManager.getDataWatcherPaths();
+        payload.existWatches = this.watcherManager.getExistenceWatcherPaths();
+        payload.childWatches = this.watcherManager.<span class="apidocCodeKeywordSpan">getChildWatcherPaths</span>();
+
+        setWatchesRequest = new jute.Request(header, payload);
+        this.queue(setWatchesRequest);
+    }
+};
+
+ConnectionManager.prototype.onSocketTimeout = function () {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.WatcherManager.prototype.getDataWatcherPaths" id="apidoc.element.node-zookeeper-client.WatcherManager.prototype.getDataWatcherPaths">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.WatcherManager.prototype.</span>getDataWatcherPaths
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getDataWatcherPaths = function () {
+    return getWatcherPaths(this, &#x27;data&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        payload = new jute.protocol.SetWatches();
+
+        header.type = jute.OP_CODES.SET_WATCHES;
+        header.xid = jute.XID_SET_WATCHES;
+
+        payload.setChrootPath(this.chrootPath);
+        payload.relativeZxid = this.zxid;
+        payload.dataWatches = this.watcherManager.<span class="apidocCodeKeywordSpan">getDataWatcherPaths</span>();
+        payload.existWatches = this.watcherManager.getExistenceWatcherPaths();
+        payload.childWatches = this.watcherManager.getChildWatcherPaths();
+
+        setWatchesRequest = new jute.Request(header, payload);
+        this.queue(setWatchesRequest);
+    }
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.WatcherManager.prototype.getExistenceWatcherPaths" id="apidoc.element.node-zookeeper-client.WatcherManager.prototype.getExistenceWatcherPaths">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.WatcherManager.prototype.</span>getExistenceWatcherPaths
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getExistenceWatcherPaths = function () {
+    return getWatcherPaths(this, &#x27;existence&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+        header.type = jute.OP_CODES.SET_WATCHES;
+        header.xid = jute.XID_SET_WATCHES;
+
+        payload.setChrootPath(this.chrootPath);
+        payload.relativeZxid = this.zxid;
+        payload.dataWatches = this.watcherManager.getDataWatcherPaths();
+        payload.existWatches = this.watcherManager.<span class="apidocCodeKeywordSpan">getExistenceWatcherPaths</span>();
+        payload.childWatches = this.watcherManager.getChildWatcherPaths();
+
+        setWatchesRequest = new jute.Request(header, payload);
+        this.queue(setWatchesRequest);
+    }
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.WatcherManager.prototype.isEmpty" id="apidoc.element.node-zookeeper-client.WatcherManager.prototype.isEmpty">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.WatcherManager.prototype.</span>isEmpty
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isEmpty = function () {
+    var empty = true,
+        watchers,
+        paths,
+        i,
+        j;
+
+    watchers = [this.dataWatchers, this.existenceWatchers, this.childWatchers];
+
+    for (i = 0; i &#x3c; watchers.length; i += 1) {
+        paths = Object.keys(watchers[i]);
+
+        for (j = 0; j &#x3c; paths.length; j += 1) {
+            if (watchers[i][paths[j]].listeners(&#x27;notification&#x27;).length &#x3e; 0) {
+                empty = false;
+                break;
+            }
+        }
+    }
+
+    return empty;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    authRequest = new jute.Request(header, payload);
+    this.queue(authRequest);
+
+},  this);
+    }
+
+    // Reset the watchers if we have any.
+    if (!this.watcherManager.<span class="apidocCodeKeywordSpan">isEmpty</span>()) {
+header = new jute.protocol.RequestHeader();
+payload = new jute.protocol.SetWatches();
+
+header.type = jute.OP_CODES.SET_WATCHES;
+header.xid = jute.XID_SET_WATCHES;
+
+payload.setChrootPath(this.chrootPath);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.WatcherManager.prototype.registerChildWatcher" id="apidoc.element.node-zookeeper-client.WatcherManager.prototype.registerChildWatcher">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.WatcherManager.prototype.</span>registerChildWatcher
+        <span class="apidocSignatureSpan">(path, watcher)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">registerChildWatcher = function (path, watcher) {
+    registerWatcher(this, &#x27;child&#x27;, path, watcher);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        self.connectionManager.queue(request, function (error, response) {
+            if (error) {
+                next(error);
+                return;
+            }
+
+            if (watcher) {
+                self.connectionManager.<span class="apidocCodeKeywordSpan">registerChildWatcher</span>(path, watcher);
+            }
+
+            next(null, response.payload.children, response.payload.stat);
+        });
+    },
+    callback
+);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.WatcherManager.prototype.registerDataWatcher" id="apidoc.element.node-zookeeper-client.WatcherManager.prototype.registerDataWatcher">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.WatcherManager.prototype.</span>registerDataWatcher
+        <span class="apidocSignatureSpan">(path, watcher)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">registerDataWatcher = function (path, watcher) {
+    registerWatcher(this, &#x27;data&#x27;, path, watcher);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        self.connectionManager.queue(request, function (error, response) {
+            if (error) {
+                next(error);
+                return;
+            }
+
+            if (watcher) {
+                self.connectionManager.<span class="apidocCodeKeywordSpan">registerDataWatcher</span>(path, watcher);
+            }
+
+            next(null, response.payload.data, response.payload.stat);
+        });
+    },
+    callback
+);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-zookeeper-client.WatcherManager.prototype.registerExistenceWatcher" id="apidoc.element.node-zookeeper-client.WatcherManager.prototype.registerExistenceWatcher">
+        function <span class="apidocSignatureSpan">node-zookeeper-client.WatcherManager.prototype.</span>registerExistenceWatcher
+        <span class="apidocSignatureSpan">(path, watcher)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">registerExistenceWatcher = function (path, watcher) {
+    registerWatcher(this, &#x27;existence&#x27;, path, watcher);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+if (watcher) {
+    if (existence) {
+        self.connectionManager.registerDataWatcher(
+            path,
+            watcher
+        );
+    } else {
+        self.connectionManager.<span class="apidocCodeKeywordSpan">registerExistenceWatcher</span>(
+            path,
+            watcher
+        );
+    }
+}
+
+next(
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
